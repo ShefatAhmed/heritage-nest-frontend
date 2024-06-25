@@ -2,14 +2,14 @@ import "./Buying1.css";
 const Buying1 = () => {
   return (
     <div className="grid grid-cols-12 px-16 pt-12">
-      <div className="main col-span-12 md:col-span-6">
+      <div className="main col-span-12 lg:col-span-6">
         <img
-          className="w-[458px] h-[400px] image-1"
+          className="w-[458px] h-[400px] image-1 rounded-lg"
           src="https://i.postimg.cc/KjNZH5dk/31eb3ae1fa8931e155336d8e3eb7774f.jpg"
           alt=""
         />
         <img
-          className="w-[452px] h-[240px] image-2"
+          className="w-[452px] h-[240px] image-2 rounded-lg"
           src="https://i.postimg.cc/XYxCCfqv/3ca1440468ad8487d32f643ba2c807d6.jpg"
           alt=""
         />
@@ -29,7 +29,7 @@ const Buying1 = () => {
           </button>
         </div>
       </div>
-      <div className="col-span-12 md:col-span-6">
+      <div className="col-span-12 lg:col-span-6">
         <div className="flex items-center gap-3 font-bold ">
           <hr className="line-property" />{" "}
           <h1 className="text-[#F06711] text-xl ">Property buying</h1>
