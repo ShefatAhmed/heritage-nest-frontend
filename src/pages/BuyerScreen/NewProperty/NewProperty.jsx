@@ -9,18 +9,18 @@ import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaDollarSign } from "react-icons/fa";
 
-const PopularProperty = () => {
+const NewProperty = () => {
   const [data, setdata] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/property")
+    fetch("http://localhost:5000/recent-property")
       .then((res) => res.json())
       .then((result) => setdata(result));
   });
 
   return (
     <div className="p-20">
-      <div className="flex items-center md:text-left text-center gap-5 md:gap-96 mb-4">
-        <h1 className="md:text-2xl font-semibold">Popular Properties</h1>
+      <div className="flex justify-between items-center md:text-left text-center  mb-4">
+        <h1 className="md:text-2xl font-semibold">New Listed Properties</h1>
         <p className="text-[#0059B1] font-semibold underline">
           See all propeety
         </p>
@@ -78,4 +78,4 @@ const PopularProperty = () => {
   );
 };
 
-export default PopularProperty;
+export default NewProperty;
