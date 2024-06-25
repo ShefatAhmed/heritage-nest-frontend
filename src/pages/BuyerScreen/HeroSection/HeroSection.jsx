@@ -87,8 +87,10 @@ const HeroSection = () => {
         </div>
         <div className="grid grid-cols-12">
           <div className="col-span-12 md:mx-0 mx-auto md:col-span-4">
-            <h1 className="flex items-center gap-2 font-semibold"><CiLocationOn className="text-[#EE6611] font-bold" />
-            Your Location</h1>
+            <h1 className="flex items-center gap-2 font-semibold">
+              <CiLocationOn className="text-[#EE6611] font-bold" />
+              Your Location
+            </h1>
             <div className="relative w-[285px]">
               <select className="block appearance-none w-full h-[48px] bg-[#ECF5FF] rounded px-5 pr-12">
                 <option value=""></option>
@@ -103,8 +105,10 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="col-span-12 md:mx-0 mx-auto md:col-span-4">
-            <h1 className="flex items-center gap-2 font-semibold"><FaHouseUser className="text-[#EE6611]" />
-            Property Type</h1>
+            <h1 className="flex items-center gap-2 font-semibold">
+              <FaHouseUser className="text-[#EE6611]" />
+              Property Type
+            </h1>
             <div className="relative w-[285px]">
               <select className="block appearance-none w-full h-[48px] bg-[#ECF5FF] rounded px-5 pr-12">
                 <option value=""></option>
@@ -137,11 +141,9 @@ const HeroSection = () => {
           </div>
         </div>
         <div>
-        <button
-          className="bg-[#005EAE] text-white px-5 py-3 flex gap-3 items-center justify-center rounded-md mt-5 font-semibold w-full text-center"
-        >
-          <i className="fa-solid fa-magnifying-glass"></i>Find Property
-        </button>
+          <button className="bg-[#005EAE] text-white px-5 py-3 flex gap-3 items-center justify-center rounded-md mt-5 font-semibold w-full text-center">
+            <i className="fa-solid fa-magnifying-glass"></i>Find Property
+          </button>
         </div>
       </div>
     </div>
