@@ -1,4 +1,5 @@
 import HeroSection from "./HeroSection/HeroSection";
+import PopularProperty from "./PopularProperty/PopularProperty";
 import Propertys from "./Propertys/Propertys";
 
 const BuyerScreen = () => {
@@ -6,6 +7,7 @@ const BuyerScreen = () => {
     <div>
       <HeroSection />
       <Propertys />
+      <PopularProperty />
     </div>
   );
 };
