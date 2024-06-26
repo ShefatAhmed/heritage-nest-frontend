@@ -8,7 +8,7 @@ import Propertys from "./Propertys/Propertys";
 
 const Services = () => {
   return (
-    <div>
+    <div className="bg-white">
       <Banner />
       <Propertys />
       <OurStory />

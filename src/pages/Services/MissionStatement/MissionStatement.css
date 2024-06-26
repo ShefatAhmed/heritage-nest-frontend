@@ -10,6 +10,13 @@
   position: absolute;
   margin-top: 280px;
 }
+.ms-top{
+  position: relative;
+}
+.ms-vector{
+  position: absolute;
+  margin-top: -600px;
+}
 
 @media screen and (max-width: 576px) {
   .ms-main {
@@ -28,5 +35,9 @@
     width: 387px;
     padding: 5px;
     margin: 20px auto 0;
+  }
+  .ms-vector{
+    position: absolute;
+    margin-top: -700px;
   }
 }

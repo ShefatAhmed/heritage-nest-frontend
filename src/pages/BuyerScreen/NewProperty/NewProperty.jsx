@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaDollarSign } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewProperty = () => {
   const [data, setdata] = useState([]);
@@ -56,7 +57,9 @@ const NewProperty = () => {
                     </div>
                   </div>
                   <hr className="mt-2" />
-                  <h1 className="text-lg font-semibold mt-1">{item.name}</h1>
+                  <Link to={`/property/${item._id}`} className="hover:underline">
+                    <h1 className="text-lg font-semibold mt-1">{item.name}</h1>
+                  </Link>
                   <div className="flex items-center gap-2 mt-1">
                     <CiLocationOn className="text-xl text-[#EE6611] font-extrabold" />
                     <p className="text-[#6B7280]">{item.location}</p>

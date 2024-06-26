@@ -1,23 +1,41 @@
 .example-thumb {
-    width: 24px;
-    height: 24px;
-    background-color: #EE6611;
-    border-radius: 50%;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: #ee6611;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.example-track {
+  background: hwb(26 97% 0%);
+  border-radius: 999px;
+  height: 24px;
+}
+
+.horizontal-slider {
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 576px) {
+  .first-pd-cr{
+    flex-direction: column;
+    gap: 0px;
+  }
+  .title-pd{
+    font-size: medium;
+    text-align: center;
+  }
+  .pd-img{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
+    flex-direction: column;
+    margin:auto;
   }
-  
-  .example-track {
-    background: hwb(26 97% 0%);
-    border-radius: 999px;
-    height: 24px;
+  .pd-img-1{
+    width: 200px;
   }
-  
-  .horizontal-slider {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
+}
