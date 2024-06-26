@@ -5,6 +5,7 @@ import BuyerScreen from "../pages/BuyerScreen/BuyerScreen";
 import Services from "@/pages/Services/Services";
 import PropertyDetailsPage from "@/pages/BuyerScreen/PropertyDetailsPage";
 import PropertyDetailsPage2 from "@/pages/PropertyDetails/PropertyDetailsPage2";
+import NotFound from "@/pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -36,5 +37,9 @@ export const router = createBrowserRouter([
         element: <PropertyDetailsPage2 />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
