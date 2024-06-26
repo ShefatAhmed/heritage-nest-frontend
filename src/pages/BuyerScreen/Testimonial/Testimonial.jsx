@@ -12,12 +12,12 @@ const Testimonial = () => {
       <h1 className="text-[#181818] text-2xl font-bold text-center">
         Testimonials
       </h1>
-      <div className="max-w-5xl mx-auto px-4 py-16">
+      <div className="max-w-5xl mx-auto px-4 pt-16">
         <div className="flex flex-wrap -mx-2">
           {testimonials
             .slice(currentSlide, currentSlide + 2)
             .map((testimonial, index) => (
-              <div key={index} className="w-full md:w-1/2 px-2 mb-6">
+              <div key={index} className="w-full md:w-1/2 px-2 ">
                 <div className="bg-[#ECF5FF] p-10 rounded-lg shadow-md">
                   <div className="flex justify-center items-center mb-4 gap-3">
                     {[...Array(5)].map((_, i) => (

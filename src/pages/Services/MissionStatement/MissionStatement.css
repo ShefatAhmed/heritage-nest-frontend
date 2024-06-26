@@ -1,0 +1,32 @@
+.ms-main {
+  position: relative;
+}
+.ms-image {
+  position: absolute;
+  margin-left: 400px;
+  margin-top: 0px;
+}
+.ms-div {
+  position: absolute;
+  margin-top: 280px;
+}
+
+@media screen and (max-width: 576px) {
+  .ms-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .ms-image {
+    width: 380px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .ms-div {
+    width: 387px;
+    padding: 5px;
+    margin: 20px auto 0;
+  }
+}

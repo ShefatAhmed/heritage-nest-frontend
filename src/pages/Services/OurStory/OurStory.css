@@ -1,0 +1,34 @@
+.our-s-main {
+  position: relative;
+}
+.our-s-main-image {
+  position: absolute;
+}
+.our-s-last-image {
+  position: absolute;
+}
+.our-s-div {
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 480px;
+}
+
+@media screen and (max-width: 576px) {
+    .our-s-main{
+        padding-left: 0px;
+    }
+  .our-s-div {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 60px;
+    width: 387px;
+    padding: 20px;
+}
+  .our-s-last-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: 80px;
+    margin-left: 80px;
+  }
+}
