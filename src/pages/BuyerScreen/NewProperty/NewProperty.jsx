@@ -12,7 +12,7 @@ import { FaDollarSign } from "react-icons/fa";
 const NewProperty = () => {
   const [data, setdata] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/recent-property")
+    fetch("https://heritage-nest-backend.vercel.app/recent-property")
       .then((res) => res.json())
       .then((result) => setdata(result));
   });

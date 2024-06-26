@@ -3,7 +3,7 @@ const Testimonial = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/testimonial")
+    fetch("https://heritage-nest-backend.vercel.app/testimonial")
       .then((res) => res.json())
       .then((data) => setTestimonials(data));
   });

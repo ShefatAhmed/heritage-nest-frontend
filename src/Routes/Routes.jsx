@@ -3,6 +3,7 @@ import MainLayout from "../components/Layout/MainLayout";
 import HomePage from "../pages/LandingPage/HomePage";
 import BuyerScreen from "../pages/BuyerScreen/BuyerScreen";
 import Services from "@/pages/Services/Services";
+import PropertyDetailsPage from "@/pages/BuyerScreen/PropertyDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/property/:id",
+        element: <PropertyDetailsPage />,
+        loader: ({ params }) =>
+          fetch(`https://heritage-nest-backend.vercel.app/property/${params.id}`),
       },
     ],
   },

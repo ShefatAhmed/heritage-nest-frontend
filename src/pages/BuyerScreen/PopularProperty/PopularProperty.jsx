@@ -8,11 +8,12 @@ import {
 import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaDollarSign } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PopularProperty = () => {
   const [data, setdata] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/property")
+    fetch("https://heritage-nest-backend.vercel.app/property")
       .then((res) => res.json())
       .then((result) => setdata(result));
   });
@@ -56,7 +57,9 @@ const PopularProperty = () => {
                     </div>
                   </div>
                   <hr className="mt-2" />
-                  <h1 className="text-lg font-semibold mt-1">{item.name}</h1>
+                  <Link to={`/property/${item._id}`} className="hover:underline">
+                    <h1 className="text-lg font-semibold mt-1">{item.name}</h1>
+                  </Link>
                   <div className="flex items-center gap-2 mt-1">
                     <CiLocationOn className="text-xl text-[#EE6611] font-extrabold" />
                     <p className="text-[#6B7280]">{item.location}</p>
