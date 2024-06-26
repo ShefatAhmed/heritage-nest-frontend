@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaDollarSign } from "react-icons/fa";
 import { useParams } from "react-router-dom";
@@ -8,12 +8,13 @@ import {
   MdOutlineKingBed,
   MdShelves,
 } from "react-icons/md";
+import ReactSlider from "react-slider";
+import '../../lib/Style/PropertyDetails.css';
 
 const PropertyDetails = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [priceRange, setPriceRange] = useState([0, 305]);
 
   useEffect(() => {
     fetch(`https://heritage-nest-backend.vercel.app/property/${id}`)
@@ -21,14 +22,8 @@ const PropertyDetails = () => {
       .then((data) => setProperty(data));
   }, [id]);
 
-  const handleMinPriceChange = (e) => {
-    const value = Math.min(Number(e.target.value), maxPrice - 1);
-    setMinPrice(value);
-  };
-
-  const handleMaxPriceChange = (e) => {
-    const value = Math.max(Number(e.target.value), minPrice + 1);
-    setMaxPrice(value);
+  const handlePriceChange = (values) => {
+    setPriceRange(values);
   };
 
   if (!property) {
@@ -126,46 +121,38 @@ const PropertyDetails = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-12 md:col-span-4 w-[385px] h-[492px] bg-[#ECF5FF]  p-5">
+          <div className="col-span-12 md:col-span-4 w-[385px] h-[492px] bg-[#ECF5FF] p-5">
             <p className="text-[#6B7280] text-lg">Property Value</p>
             <p className="text-xl font-bold mt-5">$ {property.price}</p>
             <p className="my-5">
-              Your bid can not be than 10% of the property Minimum value.
+              Your bid cannot be less than 10% of the propertys minimum value.
             </p>
             <form>
               <div className="mb-4">
                 <div>
                   <p>Min</p>
-                  <p className="bg-white p-2">${minPrice}K</p>
+                  <p className="bg-white p-2">${priceRange[0]}K</p>
                 </div>
-                <input
-                  type="range"
-                  id="minPrice"
-                  name="minPrice"
-                  min="0"
-                  max="1000"
-                  value={minPrice}
-                  onChange={handleMinPriceChange}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-              </div>
-              <div className="mb-4">
                 <div>
                   <p>Max</p>
-                  <p className="bg-white p-2">${maxPrice}</p>
+                  <p className="bg-white p-2">${priceRange[1]}K</p>
                 </div>
-                <input
-                  type="range"
-                  id="maxPrice"
-                  name="maxPrice"
-                  min="0"
-                  max="1000"
-                  value={maxPrice}
-                  onChange={handleMaxPriceChange}
-                  className="w-full h-2 bg-[#fffcfa] rounded-lg appearance-none cursor-pointer"
+                <ReactSlider
+                  className="horizontal-slider"
+                  thumbClassName="example-thumb"
+                  trackClassName="example-track"
+                  defaultValue={[280, 305]}
+                  ariaLabel={['Lower thumb', 'Upper thumb']}
+                  ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                  min={280}
+                  max={305}
+                  value={priceRange}
+                  onChange={handlePriceChange}
+                  // eslint-disable-next-line no-unused-vars
+                  renderThumb={(props, state )  => <div {...props} />}
                 />
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center mt-24">
                 <button
                   type="submit"
                   className="bg-[#0059B1] text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline"

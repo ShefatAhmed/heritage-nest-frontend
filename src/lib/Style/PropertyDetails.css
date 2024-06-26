@@ -1,0 +1,23 @@
+.example-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: #EE6611;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+  
+  .example-track {
+    background: hwb(26 97% 0%);
+    border-radius: 999px;
+    height: 24px;
+  }
+  
+  .horizontal-slider {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
