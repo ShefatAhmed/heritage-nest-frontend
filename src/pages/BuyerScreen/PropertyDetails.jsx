@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaDollarSign } from "react-icons/fa";
 import { useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ import {
   MdShelves,
 } from "react-icons/md";
 import ReactSlider from "react-slider";
-import '../../lib/Style/PropertyDetails.css';
+import "../../lib/Style/PropertyDetails.css";
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -29,11 +29,10 @@ const PropertyDetails = () => {
   if (!property) {
     return <div>Loading...</div>;
   }
-
   return (
-    <div className="px-16 py-5 h-screen mb-96">
+    <div className="px-16 py-5 h-screen mb-[800px]">
       <div>
-        <div className="flex gap-16 items-start">
+        <div className="flex gap-96 items-start">
           <div>
             <h1 className="text-xl font-bold">{property.name}</h1>
             <div className="flex items-center gap-2 mt-1">
@@ -46,11 +45,11 @@ const PropertyDetails = () => {
             {property.price}K
           </h1>
         </div>
-        <hr className="w-[88vh]" />
-        <div className="grid grid-cols-12 mt-5">
-          <div className="w-[800px] h-[400px] col-span-12 md:col-span-8">
-            <img src={property.image} alt="" />
-            <div className="flex justify-between mt-5">
+        <hr className="w-[80vh]" />
+        <div className="grid grid-cols-12 mt-5 gap-5">
+          <div className="col-span-12 md:col-span-8">
+            <img className="w-[800px] h-[400px]" src={property.image} alt="" />
+            <div className="flex justify-between mt-5 max-w-[800px] ">
               <img
                 className="w-[290px] h-[160px]"
                 src="https://i.postimg.cc/2ynt3JM5/1e036746489dbee6907d97f3535ff19b.jpg"
@@ -74,7 +73,7 @@ const PropertyDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[800px] h-[356px] bg-slate-50 my-5 p-5 rounded border">
+            <div className="max-w-[800px] h-[356px] bg-slate-50 my-5 p-5 rounded border">
               <h1 className="text-xl font-bold">Overview</h1>
               <div className="bg-white shadow-xl flex py-2 mt-5 px-5 gap-5">
                 <div className="flex items-center gap-1">
@@ -121,47 +120,79 @@ const PropertyDetails = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-12 md:col-span-4 w-[385px] h-[492px] bg-[#ECF5FF] p-5">
-            <p className="text-[#6B7280] text-lg">Property Value</p>
-            <p className="text-xl font-bold mt-5">$ {property.price}</p>
-            <p className="my-5">
-              Your bid cannot be less than 10% of the propertys minimum value.
-            </p>
-            <form>
-              <div className="mb-4">
-                <div>
-                  <p>Min</p>
-                  <p className="bg-white p-2">${priceRange[0]}K</p>
+          <div className="col-span-12 md:col-span-4 mx-auto">
+            <div className=" w-[385px] h-[492px] bg-[#ECF5FF] p-5">
+              <p className="text-[#6B7280] text-lg">Property Value</p>
+              <p className="text-xl font-bold mt-5">$ {property.price}</p>
+              <p className="my-5">
+                Your bid cannot be less than 10% of the propertys minimum value.
+              </p>
+              <form>
+                <div className="mb-4">
+                  <div>
+                    <p>Min</p>
+                    <p className="bg-white p-2">${priceRange[0]}K</p>
+                  </div>
+                  <div>
+                    <p>Max</p>
+                    <p className="bg-white p-2">${priceRange[1]}K</p>
+                  </div>
+                  <ReactSlider
+                    className="horizontal-slider"
+                    thumbClassName="example-thumb"
+                    trackClassName="example-track"
+                    defaultValue={[280, 305]}
+                    ariaLabel={["Lower thumb", "Upper thumb"]}
+                    ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+                    min={280}
+                    max={305}
+                    value={priceRange}
+                    onChange={handlePriceChange}
+                    // eslint-disable-next-line no-unused-vars
+                    renderThumb={(props, state) => <div {...props} />}
+                  />
                 </div>
-                <div>
-                  <p>Max</p>
-                  <p className="bg-white p-2">${priceRange[1]}K</p>
+                <div className="flex items-center justify-center mt-24">
+                  <button
+                    type="submit"
+                    className="bg-[#0059B1] text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Bid Property
+                  </button>
                 </div>
-                <ReactSlider
-                  className="horizontal-slider"
-                  thumbClassName="example-thumb"
-                  trackClassName="example-track"
-                  defaultValue={[280, 305]}
-                  ariaLabel={['Lower thumb', 'Upper thumb']}
-                  ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                  min={280}
-                  max={305}
-                  value={priceRange}
-                  onChange={handlePriceChange}
-                  // eslint-disable-next-line no-unused-vars
-                  renderThumb={(props, state )  => <div {...props} />}
-                />
-              </div>
-              <div className="flex items-center justify-center mt-24">
-                <button
-                  type="submit"
-                  className="bg-[#0059B1] text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Bid Property
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
+            <div className="mt-10">
+              <img
+                className="w-[384px] h-[422px]"
+                src="https://i.postimg.cc/tRKBNtQf/Rectangle-27-2.png"
+                alt=""
+              />
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="bg-slate-50 border p-4 mb-10">
+        <h1 className="text-xl font-bold">Amenities </h1>
+        <div className="grid grid-cols-12 mt-5">
+          <div className="col-span-3 flex items-center gap-3 mx-auto">
+            <img src="https://i.postimg.cc/XvBYNR95/Capa-1.png" alt="" />
+            <p>Power Back Up</p>
+          </div>
+          <div className="col-span-3 flex items-center gap-3">
+            <img src="https://i.postimg.cc/BZYkNXrq/Beds-1.png" alt="" />
+            <img src="https://i.postimg.cc/Kzsf7gRw/Beds-3.png" alt="" />
+          </div>
+          <div className="col-span-6 mx-auto">
+            <img src="https://i.postimg.cc/9FFFQTz4/Beds-6.png" alt="" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-5">
+          <img className="mx-auto" src="https://i.postimg.cc/Qxy2pWNn/Frame-154-1.png" alt="" />
+          <img className="mx-auto" src="https://i.postimg.cc/SN1nCVMF/Frame-155-1.png" alt="" />
+          <img className="mx-auto" src="https://i.postimg.cc/x8rWWwhD/Frame-156-1.png" alt="" />
+          <img className="mx-auto" src="https://i.postimg.cc/rpK3zyL2/Frame-157.png" alt="" />
+          <img className="mx-auto" src="https://i.postimg.cc/rFjPJRVL/Frame-158-1.png" alt="" />
         </div>
       </div>
     </div>
